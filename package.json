@@ -1,0 +1,23 @@
+{
+  "name": "@zeitonline/svelte-oidc",
+  "version": "1.0.0",
+  "description": "Simple OIDC integration for Svelte",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeitonline/svelte-oidc.git"
+  },
+  "keywords": [
+    "svelte"
+  ],
+  "exports": {
+    ".": {
+      "svelte": "./src/lib/index.js"
+    }
+  },
+  "svelte": "src/lib/index.js",
+  "dependencies": {
+    "oidc-client-ts": "^3.4.1"
+  }
+}
