@@ -13,10 +13,13 @@
   ],
   "exports": {
     ".": {
-      "svelte": "./src/lib/index.js"
+      "types": "./src/lib/index.d.ts",
+      "svelte": "./src/lib/index.js",
+      "default": "./src/lib/index.js"
     }
   },
-  "svelte": "src/lib/index.js",
+  "svelte": "./src/lib/index.js",
+  "types": "./src/lib/index.d.ts",
   "dependencies": {
     "oidc-client-ts": "^3.4.1"
   }
