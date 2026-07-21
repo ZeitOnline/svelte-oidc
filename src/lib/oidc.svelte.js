@@ -1,5 +1,5 @@
 import { SvelteURLSearchParams } from 'svelte/reactivity';
-import { UserManager, WebStorageStateStore } from 'oidc-client-ts';
+import { UserManager } from 'oidc-client-ts';
 
 const setUser = user => {
   oidc.isAuthenticated = true;
@@ -11,9 +11,6 @@ const setUser = user => {
 
 const setup = args => {
   oidc.manager = new UserManager({
-    // persist the session in localStorage (instead of the default sessionStorage),
-    // so it survives reloads and is shared across tabs
-    userStore: new WebStorageStateStore({ store: window.localStorage }),
     // a redirect_uri in the settings is required for the popup and
     // silent-iframe signin flows; both can be overridden via args
     redirect_uri: `${window.location.origin}${window.location.pathname}`,

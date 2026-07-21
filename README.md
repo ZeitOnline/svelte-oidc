@@ -36,14 +36,16 @@ After setting up an OIDC server the package can be used in your Svelte component
 
 ## Session persistence
 
-The session is stored in `localStorage`, so it survives page reloads and is
-shared across browser tabs. On page load a still-valid session is restored
-without contacting the identity provider; an expired one is renewed silently
-(via refresh token if available, otherwise via a hidden iframe). While the
-page is open, tokens are renewed automatically before they expire.
+The session is stored in `sessionStorage` (the default of `oidc-client-ts`),
+i.e. it is kept per tab and survives page reloads. On page load a still-valid
+session is restored without contacting the identity provider; an expired one
+is renewed silently (via refresh token if available, otherwise via a hidden
+iframe). While the page is open, tokens are renewed automatically before they
+expire.
 
-Pass a custom `userStore` to `oidc.manage()` to override the storage, e.g. to
-restore the previous per-tab behaviour:
+If a project needs the session to be shared across browser tabs and survive
+the browser being closed, pass a custom `userStore` to `oidc.manage()` to
+store it in `localStorage` instead:
 
 ```js
 import { WebStorageStateStore } from 'oidc-client-ts';
@@ -51,7 +53,7 @@ import { WebStorageStateStore } from 'oidc-client-ts';
 oidc.manage({
   authority: 'https://...',
   client_id: 'foobar',
-  userStore: new WebStorageStateStore({ store: window.sessionStorage }),
+  userStore: new WebStorageStateStore({ store: window.localStorage }),
 });
 ```
 
