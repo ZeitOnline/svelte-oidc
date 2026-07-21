@@ -1,6 +1,6 @@
 {
   "name": "@zeitonline/svelte-oidc",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "Simple OIDC integration for Svelte",
   "license": "MIT",
   "type": "module",
